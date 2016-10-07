@@ -1,0 +1,14 @@
+name: block Dhm
+type: module
+description: Dhm module that can define blocks.
+package: Dhm modules
+# core: 8.x
+dependencies:
+  - block
+  - node
+
+# Information added by Drupal.org packaging script on 2016-08-21
+version: '8.x-1.x-dev'
+core: '8.x'
+project: 'Dhm-it'
+datestamp: 1471805641

@@ -1,0 +1,7 @@
+blockDhm.description:
+  path: '/block-dhm'
+  defaults:
+    _controller: 'Drupal\blockDhm\Controller\BlockDhmController::description'
+    _title: 'Block Dhm'
+  requirements:
+    _permission: 'access content'
