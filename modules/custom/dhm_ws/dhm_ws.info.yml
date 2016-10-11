@@ -1,0 +1,5 @@
+name: Dhm web services
+type: module
+description: Custom RESTful API module with GET/POST/PUT/DELETE etc.. method examples.
+core: 8.x
+package: Dhm modules

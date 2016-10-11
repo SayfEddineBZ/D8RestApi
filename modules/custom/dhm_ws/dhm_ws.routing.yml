@@ -1,0 +1,29 @@
+# Test API endpoints
+
+dhm_ws.get:
+  path: 'my-api/get.json'
+  defaults: { _controller: '\Drupal\dhm_ws\Controller\DhmWsController::get_produit' }
+  methods:  [GET]
+  requirements:
+    _access: 'TRUE'
+
+dhm_ws.put:
+  path: 'my-api/put.json'
+  defaults: { _controller: '\Drupal\dhm_ws\Controller\DhmWsController::put_produit' }
+  methods:  [PUT]
+  requirements:
+    _access: 'TRUE'
+
+dhm_ws.post:
+  path: 'my-api/post.json'
+  defaults: { _controller: '\Drupal\dhm_ws\Controller\DhmWsController::post_produit' }
+  methods:  [POST]
+  requirements:
+    _access: 'TRUE'
+
+dhm_ws.delete:
+  path: 'my-api/delete.json'
+  defaults: { _controller: '\Drupal\dhm_ws\Controller\DhmWsController::delete_produit' }
+  methods:  [DELETE]
+  requirements:
+    _access: 'TRUE'
