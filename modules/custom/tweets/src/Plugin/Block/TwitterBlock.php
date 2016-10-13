@@ -2,14 +2,14 @@
 
 /**
  * @file
- * Contains \Drupal\dhm_sm_feeds\Plugin\Block\TwitterBlock.
+ * Contains \Drupal\tweets\Plugin\Block\TwitterBlock.
  */
 
-namespace Drupal\dhm_sm_feeds\Plugin\Block;
+namespace Drupal\tweets\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\dhm_sm_feeds\TwitterAPIExchange;
+use Drupal\tweets\TwitterAPIExchange;
 
 /**
  * Provides a 'TwitterBlock' block.
@@ -105,7 +105,7 @@ class TwitterBlock extends BlockBase {
     if ($response) {
       $tweets = json_decode($response);
       $build = array(
-        '#theme' => 'dhm_sm_feeds',
+        '#theme' => 'tweets',
         '#tweets' => $tweets,
         '#cache' => array(
           'max-age' => 3600, // seconds

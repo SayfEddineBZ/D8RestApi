@@ -12,7 +12,7 @@
  * @link     http://github.com/j7mbo/twitter-api-php
  */
 
-namespace Drupal\dhm_sm_feeds;
+namespace Drupal\tweets;
 
 class TwitterAPIExchange {
   /**
@@ -65,7 +65,7 @@ class TwitterAPIExchange {
   public function __construct(array $settings) {
     if (!in_array('curl', get_loaded_extensions())) {
       $msg = 'You need to install cURL, see: http://curl.haxx.se/docs/install.html';
-      \Drupal::logger('dhm_sm_feeds')->notice($msg);
+      \Drupal::logger('tweets')->notice($msg);
     }
 
     if (!isset($settings['oauth_access_token'])
@@ -74,7 +74,7 @@ class TwitterAPIExchange {
       || !isset($settings['consumer_secret'])
     ) {
       $msg = 'Make sure you are passing in the correct parameters';
-      \Drupal::logger('dhm_sm_feeds')->notice($msg);
+      \Drupal::logger('tweets')->notice($msg);
     }
     $this->oauth_access_token = $settings['oauth_access_token'];
     $this->oauth_access_token_secret = $settings['oauth_access_token_secret'];
@@ -127,7 +127,7 @@ class TwitterAPIExchange {
   public function setGetfield($string) {
     if (!is_null($this->getPostfields())) {
       $msg = 'You can only choose get OR post fields.';
-      \Drupal::logger('dhm_sm_feeds')->notice($msg);
+      \Drupal::logger('tweets')->notice($msg);
     }
 
     $getfields = preg_replace('/^\?/', '', explode('&', $string));
@@ -174,7 +174,7 @@ class TwitterAPIExchange {
    */
   public function buildOauth($url, $requestMethod) {
     if (!in_array(strtolower($requestMethod), array('post', 'get'))) {
-     \Drupal::logger('dhm_sm_feeds')->notice('Request method must be either POST or GET');
+     \Drupal::logger('tweets')->notice('Request method must be either POST or GET');
     }
 
     $consumer_key = $this->consumer_key;
@@ -234,7 +234,7 @@ class TwitterAPIExchange {
    */
   public function performRequest($return = TRUE, $curlOptions = array()) {
     if (!is_bool($return)) {
-     \Drupal::logger('dhm_sm_feeds')->notice('performRequest parameter must be true or false');
+     \Drupal::logger('tweets')->notice('performRequest parameter must be true or false');
     }
     $header = array($this->buildAuthorizationHeader($this->oauth), 'Expect:');
     $getfield = $this->getGetfield();

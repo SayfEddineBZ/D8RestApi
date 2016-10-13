@@ -4,20 +4,20 @@
  * Implements hook_theme()
  */
 
-function dhm_sm_feeds_theme($existing, $type, $theme, $path) {
+function tweets_theme($existing, $type, $theme, $path) {
   return [
-    'dhm_sm_feeds' => [
+    'tweets' => [
       'variables' => [
-        'dhm_sm_feeds' => NULL,
+        'tweets' => NULL,
       ],
     ],
 
   ];
 }
 
-function template_preprocess_dhm_sm_feeds(&$variables) {
-  $variables['attributes']['class'][] = 'dhm_sm_feeds';
-  $tweets = $variables['dhm_sm_feeds'];
+function template_preprocess_tweets(&$variables) {
+  $variables['attributes']['class'][] = 'tweets';
+  $tweets = $variables['tweets'];
   $items = array();
   if (!empty($tweets)) {
     foreach ($tweets as $tweet) {
